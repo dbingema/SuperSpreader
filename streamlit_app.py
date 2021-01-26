@@ -12,12 +12,14 @@ from bokeh.palettes import plasma
 
 """
 
-# Introduction
+# Super Spreaders Create Hot Spots
+
+## Introduction
 
 Corona virus infections seem to spread almost randomly. With no rhyme or reason. Hot spots pop up quickly out of nowhere in remote places and experts struggle to explain why there, why then, why so many.
 
 
-# Infection Spread Distribution
+## Infection Spread Distribution
 
 We model the number of new infections caused by a single person in their neighborhood with a log normal function. The log normal function is defined by:
 
@@ -121,7 +123,7 @@ infections = pd.DataFrame({'Num': xPos,
 
 infections.Prob = infections.Prob / infections.Prob.sum()
 
-st.write("## New Infection Distribution")
+st.write("### New Infection Distribution")
 st.write("For Maximum Pos =", x0, "Width =", Delta, "Asymmetry =", b)
 
 st.bar_chart(infections.Prob[infections.Num < 10])
@@ -156,7 +158,7 @@ st.sidebar.write("Mean Infections, R:", round(xAvg, 3), "\n")
 """
 
 
-# Neighborhood Simulations
+## Neighborhood Simulations
 
 We simulate a grid of independent neighborhoods for visualization purposes. 
 
@@ -224,7 +226,7 @@ st.bokeh_chart(p, use_container_width=True)
 """
 
 
-# Infection Evolution
+## Infection Evolution
 
 For each infected person in each week we randomly pick a number of people they infect for the following week (while turning not infectious themselves)
 
@@ -336,7 +338,7 @@ Given this high heterogeneity of the (random) local distributions of infectiousn
 
 """
 
-# Evolution in Time by Location
+## Evolution in Time by Location
 
 We finally count the number of infections at each location at each week.
 This demonstrates the potential for a (completely random) run-away number of cases at some locations while the majority of the infections dies out.
