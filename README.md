@@ -10,6 +10,6 @@ Vary the shape of the distribution for the probability of the number of infected
 
 * Maximum Position - shift the distribution right or left
 * Width of the distribution - make the distribution wider or narrower
-* Asymmetry - change the lengh of the tial of the distribution
+* Asymmetry - change the length of the tail of the distribution
 
 The simulation updates the entire calculation, which can take a few seconds, be patient when changing the sliders.
