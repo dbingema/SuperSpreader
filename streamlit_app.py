@@ -133,7 +133,7 @@ st.sidebar.bar_chart(infections.Prob[infections.Num < 10], width = 300, height =
 
 """
 
-There are some people who infect a large number of others, many only one or none
+There are a few people who infect a large number of others, but many only infect one or none
 
 The distribution has the following shape:
 
