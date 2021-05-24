@@ -79,7 +79,7 @@ def randomIntLogNormal(n, x0, delta, b):
 
 """
 
-A possible spread of new infections per infectious person is given by this distribution, for example, with a peak position, $x_0$, of 1, a width, $\Delta$, of 1, and a right tail with an asymmetry, $b$, of 1 we get the following distribution:
+A possible spread of new infections per infectious person is given by this distribution, for example, with a peak position, $x_0$, of 1, a width, $\Delta$, of 1.725, and a right tail with an asymmetry, $b$, of 0.5 we get the following distribution:
 
 """
 
