@@ -47,28 +47,28 @@ of 1.0.
 """
 
 
-def logNormal(x, x0, Delta, b):
+def logNormal(x, x0, delta, b):
    # prevent 0/0
    eps = 1e-5
    if (abs(b) < eps): 
        b = eps
 
    if type(x) is list:
-       arg = [1+2*b*(xi-x0)/Delta for xi in x]
+       arg = [1+2*b*(xi-x0)/delta for xi in x]
        fx = [0 if (argi < eps) else math.exp(-math.log(2)*(math.log(argi)/b)**2) for argi in arg]
    else:
-       arg = 1+2*b*(x-x0)/Delta
+       arg = 1+2*b*(x-x0)/delta
        fx = 0 if (arg < eps) else math.exp(-math.log(2)*(math.log(arg)/b)**2)
    return(fx)
 
 
 # find integer random number with this distribution through inverse of cumulative function
 
-def randomIntLogNormal(n, x0, Delta, b): 
+def randomIntLogNormal(n, x0, delta, b): 
   halfBin = 0.5
-  maxX = max(200, round(20* x0 * Delta * b))
+  maxX = max(200, round(20* x0 * delta * b))
   xSim = range(maxX)
-  prob = [logNormal(x + halfBin, x0, Delta, b) for x in xSim]
+  prob = [logNormal(x + halfBin, x0, delta, b) for x in xSim]
   cumulative = np.cumsum(prob)
   cumulative = cumulative / cumulative[-1]
   ranNum = [random.random() for i in range(n)]
@@ -91,40 +91,40 @@ xPosMid = [xi + halfBin for xi in xPos]
 
 # quick hot spots, R = 1
 #x0 <- 0.2
-#Delta <- 0.01
+#delta <- 0.01
 #b <- 2.4
 
 # not quite as slow hot spots
 #x0 = 1
-#Delta = 1.725
+#delta = 1.725
 #b = 0.5
 
 st.sidebar.write('### Parameters Describing Distribution of Number of Infected People')
 
 x0 = st.sidebar.slider('Maximum Position', 0.0, 4.0, 1.0)
-Delta = st.sidebar.slider('Width', 0.01, 3.0, 1.725)
+delta = st.sidebar.slider('Width', 0.01, 3.0, 1.725)
 b = st.sidebar.slider('Asymmetry', 0.0, 2.0, 0.5)
 
 
 # slow hot spots
 #x0 <- 1.2
-#Delta <- 1.5
+#delta <- 1.5
 #b <- 0.35
 
 
 # no hot spots, R = 1
 #x0 <- 1.5
-#Delta <- 1
+#delta <- 1
 #b <- 0
 
 
 infections = pd.DataFrame({'Num': xPos,
-                          'Prob': logNormal(xPosMid, x0, Delta, b)})
+                          'Prob': logNormal(xPosMid, x0, delta, b)})
 
 infections.Prob = infections.Prob / infections.Prob.sum()
 
 st.write("### New Infection Distribution")
-st.write("For Maximum Pos =", x0, "Width =", Delta, "Asymmetry =", b)
+st.write("For Maximum Pos =", x0, "Width =", delta, "Asymmetry =", b)
 
 st.bar_chart(infections.Prob[infections.Num < 10])
 
@@ -239,7 +239,7 @@ week = week + 1
 
 # find new random numbers
 numberInfections = infectionLocations.shape[0]
-newInfections = randomIntLogNormal(numberInfections, x0, Delta, b)
+newInfections = randomIntLogNormal(numberInfections, x0, delta, b)
 
 # assign
 infectionsByLocation = infectionLocations.copy()
@@ -296,7 +296,7 @@ for week in range(startWeek, lastWeek+1):
     
     # find new random numbers
     numberInfections = infectionLocations.shape[0]
-    newInfections = randomIntLogNormal(numberInfections, x0, Delta, b)
+    newInfections = randomIntLogNormal(numberInfections, x0, delta, b)
 
     # assign
     infectionsByLocation = infectionLocations.copy()
