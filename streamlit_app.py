@@ -148,7 +148,7 @@ x2Avg = infections.x2y.sum()
 x3Avg = infections.x3y.sum()
 
 st.write("Mean Infections, R:", round(xAvg, 3), "\n")
-st.write("Spread:", round(math.sqrt(x2Avg - xAvg**2), 3), "\n")
+st.write("Width:", round(math.sqrt(x2Avg - xAvg**2), 3), "\n")
 st.write("Asymmetry:", round((x3Avg - 3*xAvg*x2Avg + 2*xAvg**3)**(1/3), 3), "\n")
 
 
