@@ -1,4 +1,4 @@
-import streamlit as st
+peimport streamlit as st
 import numpy as np
 import pandas as pd
 import math
@@ -37,7 +37,7 @@ width, and $b$ the asymmetry.
 
 The position defines the peak maximum
 independent of the other parameters, the width measures the FWHM for the
-equivalent symmetric peak directly in pixels (thanks to the factor of
+equivalent symmetric peak directly in number of people (thanks to the factor of
 $\ln(2)$ in the equation), and the asymmetry goes from negative values
 (tailing left) to positive values (tailing right). An asymmetry of zero
 describes a symmetric, Gaussian, peak. Asymmetry will increase the actual
