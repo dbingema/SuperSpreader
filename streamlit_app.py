@@ -286,7 +286,7 @@ We now repeat the simulation for a number of weeks.
 
 # have already plotted 1 and 2
 startWeek = 3
-lastWeek = 20
+lastWeek = 30
 displayWeek = 10
 
 weekToShow = st.slider('Which Week to Display', startWeek, lastWeek, displayWeek, step = 1) 
