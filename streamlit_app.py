@@ -83,7 +83,7 @@ A possible spread of new infections per infectious person is given by this distr
 
 """
 
-
+random.seed(123)
 
 xPos = range(200)
 halfBin = 0.5
