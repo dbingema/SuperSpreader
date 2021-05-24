@@ -48,10 +48,10 @@ of 1.0.
 
 
 def logNormal(x, x0, delta, b):
-   # prevent 0/0
+   # prevent 0/0 and lof of negative number
    eps = 1e-5
-   if (abs(b) < eps): 
-       b = eps
+   if (abs(delta) < eps): 
+       delta = eps
 
    if type(x) is list:
        arg = [1+2*b*(xi-x0)/delta for xi in x]
